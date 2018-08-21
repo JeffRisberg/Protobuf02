@@ -3,3 +3,7 @@
 build/
 out/
 .gradle/
+.idea/inspectionProfiles/
+.idea/workspace.xml
+.idea/tasks.xml
+
