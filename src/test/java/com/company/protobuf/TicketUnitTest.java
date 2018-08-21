@@ -1,6 +1,6 @@
 package com.company.protobuf;
 
-import com.company.addressbook.AddressBookProtos;
+import com.company.CommDefs.TicketProtos;
 import org.junit.After;
 import org.junit.Test;
 
@@ -14,7 +14,7 @@ import java.util.Random;
 import static org.junit.Assert.assertEquals;
 
 public class TicketUnitTest {
-  private final String filePath = "address_book";
+  private final String filePath = "tickets";
 
   @After
   public void cleanup() throws IOException {
@@ -22,7 +22,7 @@ public class TicketUnitTest {
   }
 
   @Test
-  public void givenAddressBookWithOnePerson_whenCreateJavaInstance_shouldMatchValues() {
+  public void givenTicketWithOnePerson_whenCreateJavaInstance_shouldMatchValues() {
     //given
     int id = new Random().nextInt();
     String firstName = "Michael";
@@ -30,13 +30,13 @@ public class TicketUnitTest {
     String email = "elephant@gmail.com";
     String number = "01234567890";
 
-    AddressBookProtos.Person.Builder builder = AddressBookProtos.Person.newBuilder()
+    TicketProtos.Person.Builder builder = TicketProtos.Person.newBuilder()
       .setId(id)
       .setFirstName(firstName)
       .setLastName(lastName)
       .setEmail(email)
       .addNumbers(number);
-    AddressBookProtos.Person person = builder.build();
+    TicketProtos.Person person = builder.build();
 
     //then
     assertEquals(person.getEmail(), email);
@@ -47,7 +47,7 @@ public class TicketUnitTest {
   }
 
   @Test
-  public void givenAddressBookWithOnePerson_whenSaveAsAFile_shouldLoadFromFileToJavaClass() throws IOException {
+  public void givenTicketWithOnePerson_whenSaveAsAFile_shouldLoadFromFileToJavaClass() throws IOException {
     //given
     int id = new Random().nextInt();
     String firstName = "Michael";
@@ -55,24 +55,24 @@ public class TicketUnitTest {
     String email = "zebra@gmail.com";
     String number = "01234567890";
 
-    AddressBookProtos.Person.Builder builder = AddressBookProtos.Person.newBuilder()
+    TicketProtos.Person.Builder builder = TicketProtos.Person.newBuilder()
         .setId(id)
         .setFirstName(firstName)
         .setLastName(lastName)
         .setEmail(email)
         .addNumbers(number);
-    AddressBookProtos.Person person = builder.build();
+    TicketProtos.Person person = builder.build();
 
     //when
-    AddressBookProtos.AddressBook addressBook = AddressBookProtos.AddressBook.newBuilder().addPeople(person).build();
+    TicketProtos.Ticket Ticket = TicketProtos.Ticket.newBuilder().addPeople(person).build();
     FileOutputStream fos = new FileOutputStream(filePath);
-    addressBook.writeTo(fos);
+    Ticket.writeTo(fos);
     fos.close();
 
     //then
     FileInputStream fis = new FileInputStream(filePath);
-    AddressBookProtos.AddressBook deserialized =
-      AddressBookProtos.AddressBook.newBuilder().mergeFrom(fis).build();
+    TicketProtos.Ticket deserialized =
+      TicketProtos.Ticket.newBuilder().mergeFrom(fis).build();
     fis.close();
 
     assertEquals(deserialized.getPeople(0).getEmail(), email);
