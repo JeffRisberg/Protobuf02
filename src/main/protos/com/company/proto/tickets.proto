@@ -1,14 +1,15 @@
 syntax = "proto3";
 
-option java_package = "com.company.common";
-option java_outer_classname = "CommDefs";
-option java_multiple_files = true;
-
-message Ticket {
-  repeated CustomField;
+message TicketContent {
+  string id = 1;
+  string displayId = 2;
+  repeated CustomField customFields = 12;
+  uint64 creationDate = 13;
+  uint64 lastUpdatedDate = 14;
+  uint64 closedDate = 15;
 }
 
 message CustomField {
-  string name;
-  string value;
+  string name = 1;
+  string value = 2;
 }
