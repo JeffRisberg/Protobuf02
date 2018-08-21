@@ -1,0 +1,58 @@
+repositories {
+  maven { url "https://plugins.gradle.org/m2/" }
+}
+
+buildscript {
+  repositories {
+    mavenCentral()
+    maven { url "https://plugins.gradle.org/m2/" }
+  }
+  dependencies {
+    classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.5'
+  }
+}
+
+group 'com.company'
+
+version '1.0-SNAPSHOT'
+
+ext {
+  protocVersion = '3.3.0'
+}
+
+apply plugin: 'java'
+apply plugin: 'com.google.protobuf'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+
+protobuf {
+  protoc {
+    artifact = "com.google.protobuf:protoc:$protocVersion"
+  }
+  generatedFilesBaseDir = "${buildDir}/src/generated/"
+}
+
+mainClassName = "com.company.protobuf.Main"
+
+sourceSets {
+  main {
+    java {
+      srcDirs = ['src/main/java', "${buildDir}/src/generated/main/java"]
+    }
+    proto {
+      // In addition to the default 'src/main/proto'
+      srcDir 'src/main/protos'
+    }
+  }
+  generated {
+    java.srcDir "${buildDir}/src/generated/main/java"
+  }
+}
+
+dependencies {
+  compile "com.google.protobuf:protobuf-java:$protocVersion"
+  compile "com.google.protobuf:protobuf-java-util:$protocVersion"
+
+  testCompile group: 'junit', name: 'junit', version: '4.12'
+}

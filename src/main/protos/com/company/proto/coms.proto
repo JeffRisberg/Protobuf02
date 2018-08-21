@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+option java_package = "com.company.common";
+option java_outer_classname = "CommDefs";
+option java_multiple_files = true;
+
+import "com/company/proto/tickets.proto";
+
