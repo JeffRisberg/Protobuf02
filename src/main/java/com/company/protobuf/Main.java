@@ -3,6 +3,7 @@ package com.company.protobuf;
 import com.company.common.CustomField;
 import com.company.common.TicketContent;
 import com.company.common.TicketContentOrBuilder;
+import com.company.common.schema.FieldMapping;
 
 import java.net.InetAddress;
 import java.util.UUID;
@@ -44,9 +45,21 @@ public class Main {
     System.out.println(ticket);
   }
 
+  public void createFieldMapping() {
+    FieldMapping fm = new FieldMapping();
+
+    fm.setTenantId("10000");
+    fm.setVersion(1);
+    fm.setEntityName("ticket");
+
+    fm.setFieldName("id");
+    fm.setExternalFieldName("sysId");
+  }
+
   public static void main(String[] args) {
     Main main = new Main();
 
     main.customTest();
+    main.createFieldMapping();
   }
 }
