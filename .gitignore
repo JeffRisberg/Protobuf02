@@ -3,6 +3,7 @@
 build/
 out/
 .gradle/
+.idea/libraries/
 .idea/inspectionProfiles/
 .idea/workspace.xml
 .idea/tasks.xml
