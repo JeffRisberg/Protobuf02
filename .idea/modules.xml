@@ -3,9 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/protobuf02.iml" filepath="$PROJECT_DIR$/.idea/modules/protobuf02.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/protobuf02_generated.iml" filepath="$PROJECT_DIR$/.idea/modules/protobuf02_generated.iml" group="protobuf02" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/protobuf02_main.iml" filepath="$PROJECT_DIR$/.idea/modules/protobuf02_main.iml" group="protobuf02" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/protobuf02_test.iml" filepath="$PROJECT_DIR$/.idea/modules/protobuf02_test.iml" group="protobuf02" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/protobuf02.generated.iml" filepath="$PROJECT_DIR$/.idea/modules/protobuf02.generated.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/protobuf02.main.iml" filepath="$PROJECT_DIR$/.idea/modules/protobuf02.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/protobuf02.test.iml" filepath="$PROJECT_DIR$/.idea/modules/protobuf02.test.iml" />
     </modules>
   </component>
 </project>

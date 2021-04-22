@@ -24,7 +24,7 @@ sourceCompatibility = 1.8
 
 ext {
   slf4jVersion = '1.7.25'
-  protocVersion = '3.3.0'
+  protocVersion = '3.14.0'
   projectLombokVersion = '1.16.20'
   hibernateVersion = '5.2.17.Final'
   jacksonVersion = '2.9.6'
